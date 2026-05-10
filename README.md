@@ -385,5 +385,3 @@ All app data endpoints require an authenticated cookie session.
 
 - Firecrawl Search docs: https://docs.firecrawl.dev/features/search
 - Firecrawl Extract docs: https://docs.firecrawl.dev/features/extract
-- OpenAI Responses API: https://platform.openai.com/docs/api-reference/responses/create
-- OpenAI Structured Outputs: https://platform.openai.com/docs/guides/structured-outputs
