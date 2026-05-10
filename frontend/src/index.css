@@ -1,0 +1,258 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --bg: #050505;
+  --panel: rgba(12, 18, 24, 0.74);
+  --panel-strong: rgba(18, 25, 34, 0.88);
+  --line: rgba(255, 255, 255, 0.1);
+  --glow: #00ffc6;
+  --coral: #ff6b6b;
+  --solar: #ffb86a;
+  --iris: #8e7cff;
+  --text: #f7fbff;
+  --muted: rgba(240, 245, 255, 0.66);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply font-body antialiased text-white;
+  margin: 0;
+  min-width: 320px;
+  background:
+    radial-gradient(circle at top left, rgba(0, 255, 198, 0.15), transparent 26%),
+    radial-gradient(circle at 85% 14%, rgba(255, 107, 107, 0.12), transparent 18%),
+    radial-gradient(circle at 50% 100%, rgba(142, 124, 255, 0.12), transparent 24%),
+    linear-gradient(180deg, #050505 0%, #07090f 38%, #040404 100%);
+  color: var(--text);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+*::selection {
+  background: rgba(0, 255, 198, 0.22);
+  color: white;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(0, 255, 198, 0.8), rgba(255, 107, 107, 0.8));
+}
+
+@layer components {
+  .page-shell {
+    @apply relative mx-auto w-full max-w-[1180px] px-4 pb-20 pt-28 sm:px-6 lg:px-8;
+  }
+
+  .content-grid {
+    @apply grid items-start gap-6;
+  }
+
+  .page-stack {
+    @apply mx-auto w-full max-w-[1040px] space-y-6;
+  }
+
+  .form-layout {
+    @apply grid items-start gap-5 md:grid-cols-2;
+  }
+
+  .field-full {
+    @apply md:col-span-2;
+  }
+
+  .field-label {
+    @apply mb-2 block text-sm font-semibold text-white/[0.72];
+  }
+
+  .lux-panel {
+    background:
+      linear-gradient(135deg, rgba(15, 22, 30, 0.92), rgba(8, 12, 17, 0.76)) padding-box,
+      linear-gradient(135deg, rgba(0, 255, 198, 0.28), rgba(255, 107, 107, 0.14), rgba(255, 184, 106, 0.22)) border-box;
+    border: 1px solid transparent;
+    @apply rounded-lg shadow-soft backdrop-blur-2xl;
+  }
+
+  .soft-panel {
+    @apply rounded-lg border border-white/10 bg-white/[0.045] backdrop-blur-2xl shadow-soft;
+  }
+
+  .section-card {
+    @apply rounded-lg border border-white/10 bg-white/[0.045] p-4;
+  }
+
+  .eyebrow {
+    @apply text-[11px] font-semibold uppercase tracking-[0.35em] text-white/55;
+  }
+
+  .headline {
+    @apply font-display text-4xl font-bold leading-[0.95] tracking-[-0.05em] text-white sm:text-6xl lg:text-7xl;
+  }
+
+  .subcopy {
+    @apply max-w-2xl text-sm leading-7 text-white/65 sm:text-base;
+  }
+
+  .pill {
+    @apply inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.05] px-3 py-2 text-xs font-medium text-white/75;
+  }
+
+  .input-shell {
+    @apply min-h-12 w-full rounded-lg border border-white/10 bg-black/20 px-4 py-3 text-sm text-white outline-none transition placeholder:text-white/[0.34] focus:border-glow/70 focus:bg-white/[0.06];
+  }
+
+  .select-shell {
+    appearance: none;
+    background-color: rgba(0, 0, 0, 0.2);
+    background-image:
+      linear-gradient(45deg, transparent 50%, rgba(255, 255, 255, 0.72) 50%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.72) 50%, transparent 50%);
+    background-position:
+      calc(100% - 18px) calc(50% - 2px),
+      calc(100% - 12px) calc(50% - 2px);
+    background-size: 6px 6px, 6px 6px;
+    background-repeat: no-repeat;
+    padding-right: 2.75rem;
+  }
+
+  .select-shell option {
+    background: #0b1118;
+    color: rgba(255, 255, 255, 0.92);
+  }
+
+  .button-primary {
+    @apply inline-flex min-h-11 items-center justify-center rounded-lg px-5 py-3 font-semibold text-ink shadow-glow transition;
+    background: linear-gradient(135deg, #00ffc6, #b4fff1);
+  }
+
+  .button-secondary {
+    @apply inline-flex min-h-11 items-center justify-center rounded-lg border px-5 py-3 font-semibold text-white transition;
+    border-color: rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  .button-secondary:hover {
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  .carousel-shell {
+    @apply relative;
+  }
+
+  .carousel-arrow {
+    @apply absolute top-1/2 z-10 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border text-white transition;
+    border-color: rgba(255, 255, 255, 0.12);
+    background: rgba(7, 11, 16, 0.82);
+    backdrop-filter: blur(18px);
+  }
+
+  .carousel-arrow:hover {
+    border-color: rgba(0, 255, 198, 0.35);
+    background: rgba(255, 255, 255, 0.12);
+    color: var(--glow);
+  }
+
+  .carousel-arrow:disabled {
+    opacity: 0.45;
+    cursor: default;
+  }
+
+  .carousel-arrow-left {
+    @apply left-0;
+  }
+
+  .carousel-arrow-right {
+    @apply right-0;
+  }
+
+  @media (min-width: 640px) {
+    .carousel-arrow-left {
+      transform: translate(-50%, -50%);
+    }
+
+    .carousel-arrow-right {
+      transform: translate(50%, -50%);
+    }
+  }
+
+  .shimmer {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.04) 25%, rgba(255, 255, 255, 0.12) 50%, rgba(255, 255, 255, 0.04) 75%);
+    background-size: 200% 100%;
+    @apply animate-shimmer;
+  }
+
+  .map-surface {
+    background:
+      linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 32px 32px, 32px 32px;
+  }
+}
+
+.noise-overlay {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  opacity: 0.06;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.8) 0.4px, transparent 0.6px),
+    radial-gradient(circle at 70% 50%, rgba(255, 255, 255, 0.6) 0.4px, transparent 0.8px);
+  background-size: 22px 22px, 28px 28px;
+}
+
+.ambient-ring {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  opacity: 0.28;
+}
+
+.cursor-dot,
+.cursor-ring {
+  pointer-events: none;
+  position: fixed;
+  z-index: 70;
+  border-radius: 9999px;
+  transform: translate(-50%, -50%);
+}
+
+.cursor-dot {
+  height: 10px;
+  width: 10px;
+  background: white;
+  mix-blend-mode: difference;
+}
+
+.cursor-ring {
+  height: 34px;
+  width: 34px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(4px);
+}
+
+@media (max-width: 1024px) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none;
+  }
+}
